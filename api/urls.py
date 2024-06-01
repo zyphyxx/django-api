@@ -24,5 +24,5 @@ import website
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', prod_views)
+    path('products/', prod_views, name='prod_list')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
