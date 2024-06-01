@@ -24,6 +24,7 @@ class Product(models.Model):
     description = models.CharField(max_length=255, null=False, blank=False)
     price = models.DecimalField(max_digits=8, decimal_places=2, null=False, blank=False)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products', default=1)
+    photo = models.ImageField(upload_to='images', blank=True, null=True)
 
     def __str__(self):
         return self.name

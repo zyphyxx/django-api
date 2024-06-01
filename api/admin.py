@@ -1,13 +1,22 @@
 from django.contrib import admin
-from api.models import Employee, Product, Category
+from .models import Employee, Product, Category
 
 
-# Register your models here.
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'lastname', 'cpf', 'service_time', 'remuneration')
+    search_fields = ('name', 'lastname', 'cpf')
 
-class EAdmin (admin.ModelAdmin):
-    list_display = ('name', 'lastname', 'cpf', 'service_time', 'remunetarion')
-    search_fields = 'name'
 
-    admin.site.register(Employee)
-    admin.site.register(Product)
-    admin.site.register(Category)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'price', 'category')
+    search_fields = ('name', 'description', 'price')
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+
+
+admin.site.register(Employee, EmployeeAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
