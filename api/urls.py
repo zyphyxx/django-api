@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from website.views import prod_views
+from website.views import prod_views, add_product_views
 
 import website
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', prod_views, name='prod_list')
+    path('products/', prod_views, name='prod_list'),
+    path('add', add_product_views, name='add_products')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
