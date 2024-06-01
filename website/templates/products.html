@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+</head>
+{% block content %}
+    <body>
+    {% for product in products %}
+        <h3> Nome: {{ product.name }} <br> Descrição: {{ product.description }} <br> Preço: {{ product.price }} R$</h3>
+        <br>
+    {% endfor %}
+
+
+    </body>
+{% endblock %}
+</html>
