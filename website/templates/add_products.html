@@ -3,8 +3,12 @@
 {%  block content %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        <table>
+            {{ add_products.as_table }}
+        </table>
 
-        {{ add_products }}
+        <input type="submit" value="Cadastrar" class="btn-primary">
+
 
     </form>
 {%  endblock  %}
